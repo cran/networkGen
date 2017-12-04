@@ -1,111 +1,69 @@
 jsDrawLines <- function(){
 jsDrawLines <- paste0("
 
-    function linedraw(x1, y1, x2, y2, lineid){
-    if(y1 < y2){
-    var pom = y1;
-    y1 = y2;
-    y2 = pom;
-    pom = x1;
-    x1 = x2;
-    x2 = pom;
-    }
-    var length=Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-
-    var a = Math.abs(x1-x2);
-    var b = Math.abs(y1-y2);
-    var c;
-    var sx = (x1+x2)/2 ;
-    var sy = (y1+y2)/2 ;
-    var width = Math.sqrt(a*a + b*b ) ;
-    var x = sx - width/2;
-    var y = sy;
-
-    a = width / 2;
-
-    c = Math.abs(sx-x);
-
-    b = Math.sqrt(Math.abs(x1-x)*Math.abs(x1-x)+Math.abs(y1-y)*Math.abs(y1-y) );
-
-    var cosb = (b*b - a*a - c*c) / (2*a*c);
-    var rad = Math.acos(cosb);
-    var deg = (rad*180)/Math.PI
-
-    htmlns = \"http://www.w3.org/1999/xhtml\";
-    div = document.createElementNS(htmlns, \"div\");
-    div.setAttribute('id', lineid);
-    div.setAttribute('style','border:2px solid black;width:'+width+'px;height:\" + length + \"px;-moz-transform:rotate('+deg+'deg);-webkit-transform:rotate('+deg+'deg);position:absolute;top:'+y+'px;left:'+x+'px;');
-
-    document.getElementById(\"graphContainer\").appendChild(div);
-
-    }
-
-
 
     ////////// Timer [Start] //////
 
-    var time = 0;
-    var running = 0;
-    var timeStamp;
+                      var time = 0;
+                      var running = 0;
+                      var timeStamp;
 
-    function startPause()
-    {
-    if(running == 0){
-    running = 1;
-    increment();
-    //document.getElementById(\"startPause\").innerHTML = \"Pause\";
-    }else{
-    running = 0;
-    //document.getElementById(\"startPause\").innerHTML = \"Resume\";
-    }
-    }
+                      function startPause()
+                      {
+                      if(running == 0){
+                      running = 1;
+                      increment();
+                      //document.getElementById(\"startPause\").innerHTML = \"Pause\";
+                      }else{
+                      running = 0;
+                      //document.getElementById(\"startPause\").innerHTML = \"Resume\";
+                      }
+                      }
 
-    // function reset()
-    // {
-    //     running = 0;
-    //     time = 0;
-    //     document.getElementById(\"startPause\").innerHTML = \"Start\";
-    //     document.getElementById(\"output\").innerHTML = \"00:00:00:00\";
-    // }
+                      // function reset()
+                      // {
+                      //     running = 0;
+                      //     time = 0;
+                      //     document.getElementById(\"startPause\").innerHTML = \"Start\";
+                      //     document.getElementById(\"output\").innerHTML = \"00:00:00:00\";
+                      // }
 
-    function increment()
-    {
-    if(running == 1){
-    setTimeout(function(){
-    time++;
-    var hours = Math.floor(time/10/60/60);
-    var mins = Math.floor(time/10/60 % 60);
-    var secs = Math.floor(time/10 % 60);
-    var tenths = time % 10;
+                      function increment()
+                      {
+                      if(running == 1){
+                      setTimeout(function(){
+                      time++;
+                      var hours = Math.floor(time/10/60/60);
+                      var mins = Math.floor(time/10/60 % 60);
+                      var secs = Math.floor(time/10 % 60);
+                      var tenths = time % 10;
 
-    if(hours < 10) {
-    hours = \"0\" + hours;
-    }
+                      if(hours < 10) {
+                      hours = \"0\" + hours;
+                      }
 
-    if(mins < 10){
-    mins = \"0\" + mins;
-    }
-    if(secs < 10){
-    secs = \"0\" + secs;
-    }
-    document.getElementById(\"output\").innerHTML = hours + \":\" + mins + \":\" + secs + \":\" + \"0\" + tenths;
-    timeStamp =  hours + \":\" + mins + \":\" + secs + \":\" + \"0\" + tenths;
-    increment();
+                      if(mins < 10){
+                      mins = \"0\" + mins;
+                      }
+                      if(secs < 10){
+                      secs = \"0\" + secs;
+                      }
+                      document.getElementById(\"output\").innerHTML = hours + \":\" + mins + \":\" + secs + \":\" + \"0\" + tenths;
+                      timeStamp =  hours + \":\" + mins + \":\" + secs + \":\" + \"0\" + tenths;
+                      increment();
 
-    },100);
-    }
-    }
+                      },100);
+                      }
+                      }
 
-    window.onload=startPause();
+                      window.onload=startPause();
 
-    // <p style =\"width:150px; height:20px; background-color:#fff; border: 1px solid #999\" id=\"output\"></p>
-    //       <div id=\"controls\">
-    //       <button id=\"startPause\" onclick=\"startPause()\">Start</button>
-    //       <button onclick=\"reset()\">Reset</button>
-    //        </div>
-    ///////////// Timer End ////////////
-
-
+                      // <p style =\"width:150px; height:20px; background-color:#fff; border: 1px solid #999\" id=\"output\"></p>
+                      //       <div id=\"controls\">
+                      //       <button id=\"startPause\" onclick=\"startPause()\">Start</button>
+                      //       <button onclick=\"reset()\">Reset</button>
+                      //        </div>
+                      ///////////// Timer End ////////////
 
 
     var isFirstNodeClicked=true;
@@ -447,7 +405,7 @@ jsDrawLines <- paste0("
     // this breaks if there is no if-statement on line 302. Because it doesn't continue onwards and reset nodeclicked into prevNode.
     // So you need the if statement. Once that is true, then it continues on with the code.
     myelement = document.getElementById(elementname);
-    myelement.style.border = '2px solid #FF0000';
+    myelement.style.stroke = '#FF0000';
     }
 
     // set things up for next time

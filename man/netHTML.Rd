@@ -4,7 +4,7 @@
 \alias{netHTML}
 \title{Generate Network Maze (No arrows)}
 \usage{
-netHTML(nodeLogic = NULL, wd = NULL, names = NULL)
+netHTML(nodeLogic = NULL, wd = NULL, names = NULL, concerto = "C5")
 }
 \arguments{
 \item{nodeLogic}{This is the connections between the nodes.}
@@ -12,6 +12,8 @@ netHTML(nodeLogic = NULL, wd = NULL, names = NULL)
 \item{wd}{This is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.}
 
 \item{names}{This allows you to put in your own names in the nodes when generating the maze.}
+
+\item{concerto}{Choose between concerto 4 or concerto 5. CSS scale on concerto 5 is slightly off. So if you are not using concerto, you might want to change the default option to concerto 4 instead.}
 }
 \description{
 This function generates an network Maze with at most 2 arrows.
@@ -30,7 +32,7 @@ logic <- nodeLogic(value = 8, type= "circuit", itemFamily= 1)
 
 #Generate item
 set.seed(1)
-netHTML(logic, wd=NULL, names=NULL)
+netHTML(logic, wd=NULL, names=NULL, concerto="C5")
 
 
 }

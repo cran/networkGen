@@ -4,7 +4,8 @@
 \alias{netHTML1arrow}
 \title{Generate Network Maze (1 arrow)}
 \usage{
-netHTML1arrow(nodeLogic = NULL, wd = NULL, names = NULL)
+netHTML1arrow(nodeLogic = NULL, wd = NULL, names = NULL,
+  concerto = "C5")
 }
 \arguments{
 \item{nodeLogic}{This is the connections between the nodes.}
@@ -12,6 +13,8 @@ netHTML1arrow(nodeLogic = NULL, wd = NULL, names = NULL)
 \item{wd}{is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.}
 
 \item{names}{This allows you to put in your own names in the nodes when generating the maze.}
+
+\item{concerto}{Choose between concerto 4 or concerto 5. So if you are not using concerto, you might want to change the default option to concerto 4 instead.}
 }
 \description{
 This function generates an network Maze with 1 arrow.
@@ -33,7 +36,7 @@ logic <- nodeLogic(value = 8, type= "circuit", itemFamily= 1)
 
 #Generate item
 set.seed(1)
-netHTML1arrow(logic, wd=NULL, names = countries)
+netHTML1arrow(logic, wd=NULL, names = countries,concerto="C5")
 
 
 }

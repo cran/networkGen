@@ -4,7 +4,8 @@
 \alias{netHTML3arrows}
 \title{Generate Network Maze (3 arrows)}
 \usage{
-netHTML3arrows(nodeLogic = NULL, wd = NULL, names = NULL)
+netHTML3arrows(nodeLogic = NULL, wd = NULL, names = NULL,
+  concerto = "C5")
 }
 \arguments{
 \item{nodeLogic}{This is the connections between the nodes.}
@@ -12,6 +13,8 @@ netHTML3arrows(nodeLogic = NULL, wd = NULL, names = NULL)
 \item{wd}{is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.}
 
 \item{names}{This allows you to put in your own names in the nodes when generating the maze.}
+
+\item{concerto}{Choose between concerto 4 or concerto 5. So if you are not using concerto, you might want to change the default option to concerto 4 instead.}
 }
 \description{
 This function generates an network Maze with 3 arrows.
@@ -33,7 +36,7 @@ logic <- nodeLogic(value = 8, type= "circuit", itemFamily= 1)
 
 #Generate item
 set.seed(1)
-netHTML3arrows(logic, wd=NULL, names = countries)
+netHTML3arrows(logic, wd=NULL, names = countries,concerto="C5")
 
 
 }
